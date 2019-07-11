@@ -1,0 +1,45 @@
+﻿<Window x:Class="MURP.AddOrEdit"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Title="IZIN DOSEN" Width="550" Height="600">
+    <Grid Height="550" Width="550">
+        <Canvas Name="panel1" Height="400" Width="432" Background="White" Margin="0,0,60,60" HorizontalAlignment="Right" VerticalAlignment="Bottom" >
+            <TextBox Name="alasanIzin" Height="92" Width="232" TabIndex="22" HorizontalAlignment="Right" VerticalAlignment="Bottom" RenderTransformOrigin="1.004,0.452" Canvas.Left="113" Canvas.Top="235"  />
+            <materialDesign:TimePicker Name="jamPengajuanIzin" Is24Hours="True" SelectedTimeFormat="Long" Canvas.Left="215" Canvas.Top="197" />
+            <Label Name="label7" Height="22" Width="54" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="20" Margin="206,163,240,354" HorizontalAlignment="Right" VerticalAlignment="Bottom" >Jam Izin</Label>
+            <DatePicker Name="tanggallzin" Height="32" Width="148" TabIndex="19" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="29" Canvas.Top="190" />
+            <ComboBox Name="mataKuliah" Height="36" Width="152" TabIndex="18" HorizontalAlignment="Right" VerticalAlignment="Bottom" ItemsSource="{Binding}" DisplayMemberPath="mataKuliah" Canvas.Left="215" Canvas.Top="122"/>
+            <Label Name="label6" Height="22" Width="79" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="17" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="206" Canvas.Top="102" >Mata Kuliah</Label>
+            <ComboBox Name="prodi" Height="36" Width="152" TabIndex="16" HorizontalAlignment="Right" VerticalAlignment="Bottom" ItemsSource="{Binding}" DisplayMemberPath="prodi" Canvas.Left="25" Canvas.Top="122"/>
+            <ComboBox Name="kelas" Height="31" Width="43" TabIndex="15" HorizontalAlignment="Right" VerticalAlignment="Bottom" RenderTransformOrigin="0.614,2.035" Canvas.Left="363" Canvas.Top="59" ItemsSource="{Binding}" DisplayMemberPath="kelas" />
+            <Label Name="label5" Height="22" Width="47" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="14" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="363" Canvas.Top="37" RenderTransformOrigin="0.782,1.247" >Kelas</Label>
+            <ComboBox Name="semester" Height="38" Width="152" TabIndex="13" HorizontalAlignment="Right" VerticalAlignment="Bottom" RenderTransformOrigin="0.506,1.741" Canvas.Left="193" Canvas.Top="59" ItemsSource="{Binding}" >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                        <Run Text="{Binding semester}" />
+                        <Run Text="{Binding thnAkademik}" />
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <Label Name="label4" Height="22" Width="67" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="12" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="193" Canvas.Top="37" RenderTransformOrigin="0.502,1.341" >Semester</Label>
+            <ComboBox Name="namaDosen" Height="31" Width="152" TabIndex="11" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="25" Canvas.Top="64" RenderTransformOrigin="0.243,0.667"  ItemsSource="{Binding}" DisplayMemberPath="nmDosen"/>
+            <Canvas Name="pnlError" Height="26" Width="432" Visibility="Hidden" Background="Tomato" Margin="-10,-15,78,528" HorizontalAlignment="Right" VerticalAlignment="Bottom" >
+                <Label Name="lblError" Height="35" Width="441" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="2" Foreground="White" Margin="0,-15,59,519" HorizontalAlignment="Right" VerticalAlignment="Bottom" >First Name</Label>
+            </Canvas>
+            <Button Name="btn2" Height="33" Width="114" TabIndex="9" Visibility="Hidden" Foreground="White" Background="Tomato" Margin="145,341,241,165" HorizontalAlignment="Right" VerticalAlignment="Bottom" >Delete</Button>
+            <Button Name="btn1" Click="btn1_Click" Height="33" Width="114" TabIndex="8" Foreground="White" Margin="25,341,361,165" HorizontalAlignment="Right" VerticalAlignment="Bottom" >Save</Button>
+            <Label Name="Mobile" Height="22" Width="67" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="7" Margin="41,227,392,290" HorizontalAlignment="Right" VerticalAlignment="Bottom" >Alasan Izin</Label>
+            <Label Name="label3" Height="22" Width="74" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="5" Margin="34,163,392,354" HorizontalAlignment="Right" VerticalAlignment="Bottom" >Tanggal Izin</Label>
+            <Label Name="label2" Height="22" Width="47" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="29" Canvas.Top="107" RenderTransformOrigin="1.34,1.409" >Prodi</Label>
+            <Label Name="label1" Height="22" Width="87" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="29" Canvas.Top="37" >Nama Dosen</Label>
+            <Button x:Name="btn1_Copy" Height="33" Width="114" TabIndex="8" Foreground="White" Background="Red"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Cancel" Canvas.Left="158" Canvas.Top="341" Click="Btn1_Copy_Click" />
+            <ComboBox x:Name="kode_dosen" Height="32" Width="152" TabIndex="11" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="193" ItemsSource="{Binding}" SelectionChanged="Kode_dosen_SelectionChanged" DisplayMemberPath="kdDosen" />
+
+            <Label x:Name="label1_Copy" Height="26" Width="79" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="29" Canvas.Top="10" Content="Kode Dosen" RenderTransformOrigin="1.631,-0.417" />
+        </Canvas>
+    </Grid>
+</Window>
